@@ -1,6 +1,6 @@
 {
   "name": "vistora",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "Vistora game server",
   "main": "index.js",
   "scripts": {
