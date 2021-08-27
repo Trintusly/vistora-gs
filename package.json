@@ -1,10 +1,11 @@
 {
   "name": "vistora",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Vistora game server",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "sex": "git add . && git commit -m 'yes' && git push origin master"
   },
   "repository": {
     "type": "git",
