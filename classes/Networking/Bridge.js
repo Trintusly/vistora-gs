@@ -6,11 +6,17 @@ class Bridge {
 
     constructor(port) {
         this.port = port
-        this.wss = new WebSocket.Server({ port: this.port }, () => console.log("Server started."))
+        this.wss = new WebSocket.Server({ port: this.port }, () => console.log(`VGS started at port ${ this.port }`))
     }
 
-    test() {
-        this.wss.on("connection", () => console.log("connected")) 
+    instance() {
+        return this.wss
+    }
+
+    listen() {
+        this.wss.on("connection", ws => {
+            console.log("Connection!")
+        })
     }
 
 }
