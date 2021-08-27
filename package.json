@@ -1,6 +1,6 @@
 {
   "name": "vistora",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "Vistora game server",
   "main": "index.js",
   "scripts": {
@@ -12,5 +12,8 @@
     "url": "git+https://github.com/Trintusly/vistora-gs.git"
   },
   "author": "Danyal I.",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "ws": "^8.2.0"
+  }
 }
