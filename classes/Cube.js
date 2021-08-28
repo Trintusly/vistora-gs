@@ -1,9 +1,15 @@
 'use strict'
 
+const Vector3 = require('./Vector3')
+
 class Cube {
 
-    hey() {
-        console.log("adasggdfghbfgnhfmnty")
+    constructor() {
+        this.command  = "ADD-OBJECT"
+        this.type     = "CUBE"
+        this.position = new Vector3()
+        this.rotation = new Vector3()
+        this.scale    = new Vector3()
     }
 
 }
