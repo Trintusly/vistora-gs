@@ -2,6 +2,7 @@
 
 const WebSocket = require('ws')
 const Events    = require('events')
+const Player    = require('../Player')
 
 class Bridge extends Events {
 
@@ -19,8 +20,12 @@ class Bridge extends Events {
     listen() {
         this.wss.on("connection", ws => {
             ws.id = this.rand();
+            
+            let player = new Player()
+            player.id = ws.id
+            player.ws = ws
 
-            this.clients.push({ "id": ws.id, "ws": ws, "position": {"x":0, "y": 0, "z": 0}, "rotation": {"x":0, "y": 0, "z": 0} })
+            this.clients.push(player)
 
             this.send(ws, 
                 "REGISTER-PLAYER", { id: ws.id }
@@ -30,7 +35,7 @@ class Bridge extends Events {
                 "REGISTER-CLIENTS", this.pack()
             )
 
-            this.emit("player-joined", ws.id)
+            this.emit("player-joined", player)
 
             ws.on("message", msg => {
                 this.parse(msg)
@@ -87,15 +92,11 @@ class Bridge extends Events {
     }
 
     add(object) {
-        
         switch (object.command) {
-            
             case "ADD-OBJECT":
-                this.broadcast("ADD-OBJECT", { type: object.type, position: object.position, rotation: object.rotation, scale: object.scale })
+                this.broadcast("ADD-OBJECT", object)
             break;
-
         }
-
     }
 
 }

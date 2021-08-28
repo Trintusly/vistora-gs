@@ -1,12 +1,12 @@
 'use strict'
 
-const Vector3 = require('./Vector3')
+const Vector3 = require('../Vector3')
 
-class Cube {
+class Base {
 
     constructor() {
-        this.command  = "ADD-OBJECT"
-        this.type     = "CUBE"
+        this.name     = "Object"
+        this.color    = "FFFFFF"
         this.position = new Vector3()
         this.rotation = new Vector3()
         this.scale    = new Vector3()
@@ -14,4 +14,4 @@ class Cube {
 
 }
 
-module.exports = Cube
+module.exports = Base
